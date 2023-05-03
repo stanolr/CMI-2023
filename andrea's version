@@ -1,1 +1,21 @@
-from tkinter import *
+import pandas as pd
+
+class Test:
+  def __init__(self, file_name):
+    self.file_name = file_name
+    
+  def open_data(self):
+    self.df = pd.read_excel(self.file_name)
+    
+  def clean_data(self):
+      pass
+
+  def select_random_asset(self, number):
+    
+    
+  def calculate_rate_of_return(self):
+    pass
+    
+test1 = Test("NYSE_2015_to_2016.xlsx")
+test1.open_data()
+test1.select_random_asset()
