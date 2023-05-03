@@ -1,4 +1,6 @@
 import pandas as pd
+import random
+
 
 class Test:
   def __init__(self, file_name):
@@ -11,11 +13,17 @@ class Test:
       pass
 
   def select_random_asset(self, number):
-    
-    
+    df_date_recherchee = self.df[self.df['date'] == "2015-01-02"]
+    nb_lignes = len(df_date_recherchee)
+    indices_aleatoires = random.sample(range(nb_lignes), number)
+    df_aleatoire = df_date_recherchee.iloc[indices_aleatoires]
+    list_random_asset = df_aleatoire['Name'].tolist()
+    return list_random_asset
+
   def calculate_rate_of_return(self):
     pass
     
 test1 = Test("NYSE_2015_to_2016.xlsx")
 test1.open_data()
-test1.select_random_asset()
+print(test1.select_random_asset(30))
+test1.calculate_rate_of_return()
