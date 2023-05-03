@@ -1,0 +1,6 @@
+ def clean_data(self):
+     df = pd.read_excel(self.file_name, sheet_name=self.sheet_name)
+     max_obs = df.groupby('Name')['Name'].count().max()
+     df_filtered = df.groupby('Name').filter(lambda x: len(x) == max_obs)
+     return df_filtered
+     
